@@ -14,16 +14,6 @@ CLIENT_ID = "260457260524-8ka16c9gbrbu872mg2nh6upf1ngjpj1u.apps.googleuserconten
 
 REDIRECT_URI = "http://localhost:5000/oauth/callback"
 
-CLIENT_CONFIG = {
-    "installed": {
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://accounts.google.com/o/oauth2/token",
-        "redirect_uris": ["http://localhost:5000/oauth/callback", "urn:ietf:wg:oauth:2.0:oob"],
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET
-    }
-}
-
 API_KEY = "AIzaSyAj6xEAZE1XunaPHYAgzRe48pHRdFgvYlo"
 
 

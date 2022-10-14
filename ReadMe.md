@@ -27,5 +27,5 @@ https://myaccount.google.com/security
 ```
 http://localhost:5000/oauth/redirect
 http://localhost:5000/calendar/create-event
-http://localhost:5000/calendar/get-all-event
+ 
 ```
