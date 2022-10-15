@@ -160,6 +160,7 @@ def get_all_event():
 
     return 'failed!'
 
+
 def get_event_by_id():
     credentials = json.loads(session['credentials'])
 
@@ -199,7 +200,8 @@ def get_instances():
     }
 
     calendar_id = 'primary'
-    event_id = 'ea616kbfqv80jdrre3mm5r41ek'
+    event_id = 'ea616kbfqv80jdrre3mm5r41ek'  # RecuringId
+    # event_id = '_cdj3idj2ccs66b9pccoj4b9h65ijcbb161hj6b9hcoq3iohk6cpj8p3464' # single event
 
     response = requests.get(
         'https://www.googleapis.com/calendar/v3/calendars/{}/events/{}/instances'.format(calendar_id, event_id), headers=headers, params=params)
@@ -209,3 +211,59 @@ def get_instances():
 
     return 'failed!'
 
+
+def update_event():
+    tokens = json.loads(session['credentials'])
+
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer " + tokens["access_token"]
+    }
+
+    params = {
+        'key': API_KEY
+    }
+
+    event = {
+        'summary': 'Google I/O 2015 toanpb2',
+        'location': '800 Howard St., San Francisco, CA 94103',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+            'dateTime': '2015-05-28T09:00:00-07:00',
+            'timeZone': 'America/Los_Angeles',
+        },
+        'end': {
+            'dateTime': '2015-05-28T17:00:00-07:00',
+            'timeZone': 'America/Los_Angeles',
+        },
+        'recurrence': [
+            'RRULE:FREQ=DAILY;COUNT=2'
+        ],
+        'attendees': [
+            {'email': 'lpage@example.com'},
+            {'email': 'sbrin@example.com'},
+        ],
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method': 'email', 'minutes': 24 * 60},
+                {'method': 'popup', 'minutes': 10},
+            ],
+        },
+        "creator": {
+            "email": "toanpb2@gmail.com"
+        },
+    }
+
+    calendar_id = 'primary'
+
+    event_id = 'ea616kbfqv80jdrre3mm5r41ek'
+
+    response = requests.put(
+        'https://www.googleapis.com/calendar/v3/calendars/{}/events/{}'.format(calendar_id, event_id), headers=headers, params=params, json=event)
+
+    if response.status_code == 200:
+        return response.json()
+
+    return response.content

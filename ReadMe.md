@@ -23,6 +23,7 @@ http://localhost:5000/calendar/create-event
 http://localhost:5000/calendar/get-all-event
 http://localhost:5000/calendar/get-event
 http://localhost:5000/calendar/get-instances
+http://localhost:5000/calendar/update-event
 ```
 
 ```

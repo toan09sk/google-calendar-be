@@ -71,6 +71,11 @@ def calendar_get_instances():
 def calendar_get_event_by_id():
     result = get_event_by_id()
     return result
+
+@app.route('/calendar/update-event', methods = ["GET"])
+def calendar_update_event():
+    result = update_event()
+    return result
     
 
 if __name__ == "__main__":
