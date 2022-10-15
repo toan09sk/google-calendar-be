@@ -14,18 +14,17 @@ export FLASK_APP=app.py
 https://developers.google.com/oauthplayground
 https://developers.google.com/identity/protocols/oauth2/web-server
 https://myaccount.google.com/security
+https://developers.google.com/calendar/api/guides/recurringevents#protocol_1
 ```
 
 ```
-{
-  "access_token": "ya29.a0Aa4xrXNFdn_Myw94TppJr5Z4lForOHgH1x_2eY4ZiiLRCH8uNvSeivw-XHwG9oVa5NM4XTqAsWyK-iiOa5W1yoCpUXfoU7L7DGpLuJg8IYXfZWfNTRYQgae3_EbLfozcMfZlwKp9MG3gj_ZmOVqXFdoeWiiFaCgYKATASARMSFQEjDvL9AIabQi-wlGRbBtpFcZYMLQ0163",
-  "expires_in": 3599,
-  "scope": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events",
-  "token_type": "Bearer"
-}
-```
-```
 http://localhost:5000/oauth/redirect
 http://localhost:5000/calendar/create-event
- 
+http://localhost:5000/calendar/get-all-event
+http://localhost:5000/calendar/get-event
+http://localhost:5000/calendar/get-instances
+```
+
+```
+https://zapier.com/engineering/how-to-use-the-google-calendar-api/?utm_source=google&utm_medium=cpc&utm_campaign=gaw-gbl-nua-performancemax-2022&utm_adgroup=&utm_term=&utm_content=_pcrid__pkw__pmt__pdv_c_slid__pgrid__ptaid__&gclid=CjwKCAjwkaSaBhA4EiwALBgQaNyaDTtXPH7M9HqiJ916jly38FbyPet00VywMTGbBhX2XlU1yFORfBoCtJAQAvD_BwE
 ```

@@ -1,4 +1,5 @@
 from os import stat
+from unittest import result
 from flask import Flask,redirect,request, url_for, session
 from google_calendar import *
 
@@ -58,6 +59,17 @@ def calendar_create_event():
 @app.route('/calendar/get-all-event', methods = ["GET"])
 def calendar_get_all_event():
     result = get_all_event()
+    return result
+
+@app.route('/calendar/get-instances', methods = ["GET"])
+def calendar_get_instances():
+    result = get_instances()
+    return result
+    
+
+@app.route('/calendar/get-event', methods = ["GET"])
+def calendar_get_event_by_id():
+    result = get_event_by_id()
     return result
     
 

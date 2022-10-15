@@ -136,6 +136,7 @@ def create_event():
 
     return 'failed!'
 
+
 def get_all_event():
     tokens = json.loads(session['credentials'])
 
@@ -158,3 +159,53 @@ def get_all_event():
         return response.json()
 
     return 'failed!'
+
+def get_event_by_id():
+    credentials = json.loads(session['credentials'])
+
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer " + credentials["access_token"]
+    }
+
+    params = {
+        'key': API_KEY
+    }
+
+    calendar_id = 'primary'
+    event_id = 'ea616kbfqv80jdrre3mm5r41ek'
+
+    response = requests.get(
+        'https://www.googleapis.com/calendar/v3/calendars/{}/events/{}'.format(calendar_id, event_id), headers=headers, params=params)
+
+    if response.status_code == 200:
+        return response.json()
+
+    return 'failed!'
+
+
+def get_instances():
+    tokens = json.loads(session['credentials'])
+
+    headers = {
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer " + tokens["access_token"]
+    }
+
+    params = {
+        'key': API_KEY
+    }
+
+    calendar_id = 'primary'
+    event_id = 'ea616kbfqv80jdrre3mm5r41ek'
+
+    response = requests.get(
+        'https://www.googleapis.com/calendar/v3/calendars/{}/events/{}/instances'.format(calendar_id, event_id), headers=headers, params=params)
+
+    if response.status_code == 200:
+        return response.json()
+
+    return 'failed!'
+
